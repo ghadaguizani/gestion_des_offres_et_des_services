@@ -1,0 +1,101 @@
+<main>
+    <div class="container-fluid" style="width: auto;">
+      <div class="row justify-content-center pt-2">
+        <div class="text-center col">
+          <h1 class="h3">Modifier votre profil</h1>
+          <hr>
+        </div>
+      </div>
+      <div class="alert-danger">
+        <div    *ngIf="erreur==1">
+        <div >Mot de passe incorrect</div>
+    
+        </div>
+        </div>
+      <!-- <button type="button" class="btn-close" aria-label="Close"(click)="fermer()"></button>  -->
+      <div class="row justify-content-center p-2"style="padding-left: 0px;">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+            
+          <div class="card" style="width:420px;">
+            <div class="card-header text-center">
+            </div>
+            <div class="card-body">
+              <div class="container-fluid">
+ <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+               
+                <div class="form-group mb-3">
+
+                  <input id="mdp" type="password" formControlName="mdp"  [ngClass]="{ 'is-invalid': submitted && f.mdp.errors }"  placeholder="ancien mot de passe" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                  <div *ngIf="submitted && f.mdp.errors" class="invalid-feedback">
+                      <!-- <div *ngIf="f.nom.invalid && (f.nom.dirty || f.nom.touched)" class="alert alert-danger"> -->
+                      <div *ngIf="f.mdpr.errors.required">Password is required</div>
+                      <div *ngIf="f.mdp.errors?.['minlength']">    Password be at least 3 characters long. </div>
+</div>
+              </div>
+               <!--   <div>
+                  <input type="hidden" formControlName="ancienMdp">
+                </div>  -->
+              <!--   <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="nouveau">Nouveau mot de passe</label>
+                    <input id="nouveau" type="password" class="form-control"  style="width: 340px; " formControlName="nouveauMdp" [ngClass]="{ 'is-invalid': submitted && f.mdpUser.errors }" >
+                    <div *ngIf="submitted && f.nouveauMdp.errors" class="invalid-feedback">
+                      <div *ngIf="f.nouveauMdp.errors.required">Vous ne pouvez pas utiliser un mot de passe vide.</div>
+                      <div *ngIf="f.nouveauMdp.errors?.['minlength']">   New Password be at least 3 characters long.                                    </div>
+</div>
+                  </div>
+                 
+                </div> -->
+              <!--   <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="confirmer">Confirmer mot de passe</label>
+                    <input id="confirmer"type="password" class="form-control"  style="width: 340px; " formControlName="confirmMdp" [ngClass]="{ 'is-invalid': submitted && f.confirmMdp.errors }" >
+                    <div *ngIf="submitted && f.confirmMdp.errors" class="invalid-feedback">
+                      <div *ngIf="f.nom.invalid && (f.nom.dirty || f.nom.touched)" class="alert alert-danger">
+                      <div *ngIf="f.confirmMdp.errors.required">New Password is required</div>
+                      <div *ngIf="f.confirmMdp.errors.mustMatch">Passwords must match</div>
+
+</div>
+                  </div>
+                 
+                </div> -->
+                
+                
+                  
+         
+               
+               
+               
+               <div></div>
+                <div class="form-row justify-content-center" style="margin-top: 20px;">
+                  
+  <div class="example-button-row" style="margin-top:20px;">
+    <!-- <button mat-stroked-button color="primary" [disabled]="mdp==null">Enregistrer</button> -->
+    <button mat-stroked-button color="primary" id="btSubmit" class="bt1" [disabled]="f.mdp.errors.required">Enregistrer</button>
+
+    <button mat-stroked-button color="primary" type="reset" (click)="onReset()">Annuler</button>
+
+
+                    </div>
+                 
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+ <!-- <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+                            
+    <div class="form-group mb-3">
+
+        <input  type="text" formControlName="f.mdp"    placeholder="ancien mot de passe " required="" autofocus="" >
+            <div *ngIf="f.nom.invalid && (f.nom.dirty || f.nom.touched)" class="alert alert-danger">
+              <input  type="text" formControlName="f.nouveauMdp"    placeholder="nouveau mot de passe " required="" autofocus="" >
+              <input  type="text" formControlName="f.confirmMdp"    placeholder="confirmer mot de passe " required="" autofocus="" >
+
+    </div>
+    </form> -->

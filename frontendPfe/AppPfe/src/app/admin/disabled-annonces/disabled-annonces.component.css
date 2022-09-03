@@ -1,0 +1,44 @@
+
+.example-sapcer {
+    flex: 1 1 auto;
+}
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .container {
+    height:700px;
+  }
+
+  .blog-head {
+    margin-bottom: 70px;
+    }
+    
+    .blog-head h1{
+    color: #084cb0;
+    position: relative;
+    display: inline-block;
+    text-transform: capitalize;
+    }
+    
+    .blog-head h1:after, .blog-head h1:before{
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #084cb0;
+    top: 50%;
+    }
+    
+    .blog-head h1:after{
+    right: 120%;
+    }
+    
+    .blog-head h1:before{
+    left: 120%;
+    }

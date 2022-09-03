@@ -1,0 +1,365 @@
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <!-- <a class="navbar-brand" href="#page-top">Start Bootstrap</a> -->
+            <a href="#"><img src="assets/logo1.png" style="width: 80px;height:70px;"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" *ngIf="! isLoggedIn"><a class="nav-link" routerLink="/login">Se
+                            connecter</a>
+                    </li>
+                    <li class="nav-item" *ngIf="! isLoggedIn"><a class="nav-link"
+                            routerLink="/inscription">S'inscrire</a></li>
+                    <li class="nav-item"><a class="nav-link" style="margin-right:50px ;"
+                            routerLink="/ajoutService" *ngIf="! verif">Proposer mes services</a></li>
+                </ul>
+                <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+                    <!-- <img class="css-shadow" src="{{profilPicture}}" /> -->
+
+                    <img src="{{profilPicture}}" class="avatar" *ngIf="profilPicture != ''">
+                    <li class="nav-item" style="margin-right:-7px;">
+                        <a class="nav-link" [routerLink]="['/profil',id]" *ngIf="! verif">{{ firstName }}</a>
+                    </li>
+
+                    <li class="nav-item" style="margin-right: -7px;">
+                        <a  class="nav-link" routerLink="sidenav/dashboard"  *ngIf="verif == true">Dashboard</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: -103px;">
+                        <a class="nav-link" (click)="logout()">Se déconnecter</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">Rapid Service</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Confiez vos petits travaux de bricolage rapidement et en
+                        toute sérénité </h2>
+                    <a class="btn btn-primary" routerLink="/ajoutAnnonce"  *ngIf="! verif">Je publie mon annonce</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <!-- <h2 class="text-white mb-4">Built with Bootstrap 5</h2> -->
+                    <a class="btn btn-primary2" routerLink="/annonces" style="margin-bottom: 40px; ">voir les
+                        annonces</a>
+                    <a class="btn btn-primary2" href="#services" style="margin-bottom: 40px;margin-left: 20px;">voir les
+                        services</a>
+
+                    <p class="text-white-50">
+
+                        Que vous soyez salarié, demandeur d’emploi ou travailleur indépendant, Rapid Service peut vous
+                        aider à compléter vos revenus, développer une compétence ou répondre à un besoin ponctuel.
+                    </p>
+                </div>
+            </div>
+            <!-- <img class="img-fluid" src="assets/hh.jpeg" alt="..." /> -->
+        </div>
+    </section>
+    <!-- Projects-->
+    <div>
+        <br />
+        <div class="container px-4 px-lg-5" style="height: 300px;">
+
+            <div class="row gx-4 gx-lg-5 justify-content-center" style="margin-top:100px;">
+                <div class="col-lg-8 itemset" [ngsRevealSet]="{ reset:true}" [ngsInterval]="50" [ngsSelector]="'.item'">
+                    <div class="item item1">
+                        <p class="text-black-50 mx-auto mt-2 mb-5" style="text-align:center;font-size:x-large;">De quel
+                            service avez-vous besoin ?</p>
+                    </div>
+                    <div class="item item2">
+                        <p class="text-black-50" style="text-align:center;text-align:center;font-size:x-large;">
+                            Pour chaque situation, trouvez le prestataire dont les compétences répondent à vos attentes
+                            et à votre niveau d’exigence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="services">
+        <div class="container">
+            <div class="row no-gutters">
+
+                <div class="col-12 text-center w-100">
+                    <div class="form-row gallery">
+                        <table>
+                            <tr>
+                                <div class="itemset" [ngsRevealSet]="{ reset:true}" [ngsInterval]="200"
+                                    [ngsSelector]="'.item'">
+                                    <td class="lignesEspacees">
+                                        <div class="item item1">
+                                            <div class="col-sm-6 col-lg-4 mb-2 interior"
+                                                style="width:400px;height:300px">
+                                                <div class="portfolio-wrapper">
+                                                    <div class="portfolio-image">
+                                                        <img src="assets/bricolage.jpg" style="height:300px;" />
+                                                    </div>
+                                                    <div class="portfolio-overlay">
+                                                        <div class="portfolio-content">
+                                                            <a class="popimg ml-0"
+                                                                [routerLink]="['/servicesExistants','BRICOLAGE']">
+                                                                <i
+                                                                    class="ti-zoom-in display-24 display-md-23 display-lg-22 display-xl-20"></i>
+                                                            </a>
+                                                            <h4 style="color:rgb(207, 207, 7)">Bricolage</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="lignesEspacees">
+                                        <div class="item item2">
+                                            <div class="col-sm-6 col-lg-4 mb-2 decor interior"
+                                                style="width:400px;height:300px;">
+                                                <div class="portfolio-wrapper">
+                                                    <div class="portfolio-image">
+                                                        <img src="assets/jardinage.jpg" style="height:300px;" />
+                                                    </div>
+                                                    <div class="portfolio-overlay">
+                                                        <div class="portfolio-content">
+                                                            <a class="popimg ml-0"
+                                                                [routerLink]="['/servicesExistants','JARDINAGE']">
+                                                                <i
+                                                                    class="ti-zoom-in display-24 display-md-23 display-lg-22 display-xl-20"></i>
+                                                            </a>
+                                                            <h4 style="color:rgb(207, 207, 7)">Jardinage</h4>
+                                                            <!-- <p>[Decor, Interior]</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="lignesEspacees">
+                                        <div class="item item3">
+                                            <div class="col-sm-6 col-lg-4 mb-2 architecture"
+                                                style="width:400px;height:300px;">
+                                                <div class="portfolio-wrapper">
+                                                    <div class="portfolio-image">
+                                                        <img src="assets/demenagement.jpg" style="height:300px;" />
+                                                    </div>
+                                                    <div class="portfolio-overlay">
+                                                        <div class="portfolio-content">
+                                                            <a class="popimg ml-0"
+                                                                [routerLink]="['/servicesExistants','DEMENAGEMENT']">
+                                                                <i
+                                                                    class="ti-zoom-in display-24 display-md-23 display-lg-22 display-xl-20"></i>
+                                                            </a>
+                                                            <h4 style="color:rgb(207, 207, 7)">Déménagement</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </div>
+                            </tr>
+
+
+
+
+                            <tr>
+                                <div class="itemset" [ngsRevealSet]="{ reset:true}" [ngsInterval]="200"
+                                    [ngsSelector]="'.item'">
+                                    <td class="lignesEspacees">
+                                        <div class="item item1">
+
+                                            <div class="col-sm-6 col-lg-4 mb-2 interior"
+                                                style="width:400px;height:300px">
+                                                <div class="portfolio-wrapper">
+                                                    <div class="portfolio-image">
+                                                        <img src="assets/ménage2.jpg" style="height:300px;" />
+                                                    </div>
+                                                    <div class="portfolio-overlay">
+                                                        <div class="portfolio-content">
+                                                            <a class="popimg ml-0"
+                                                                [routerLink]="['/servicesExistants','MENAGE']">
+                                                                <i
+                                                                    class="ti-zoom-in display-24 display-md-23 display-lg-22 display-xl-20"></i>
+                                                            </a>
+                                                            <h4 style="color:rgb(207, 207, 7)">Ménage</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="lignesEspacees">
+                                        <div class="item item2">
+                                            <div class="col-sm-6 col-lg-4 mb-2 decor interior"
+                                                style="width:400px;height:300px;">
+                                                <div class="portfolio-wrapper">
+                                                    <div class="portfolio-image">
+                                                        <img src="assets/aide.jpg" style="height:300px;" />
+                                                    </div>
+                                                    <div class="portfolio-overlay">
+                                                        <div class="portfolio-content">
+                                                            <a class="popimg ml-0"
+                                                                [routerLink]="['/servicesExistants','AIDE_A_DOMICILE']">
+                                                                <i
+                                                                    class="ti-zoom-in display-24 display-md-23 display-lg-22 display-xl-20"></i>
+                                                            </a>
+                                                            <h4 style="color:rgb(207, 207, 7)">Aide à domicile</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="lignesEspacees">
+                                        <div class="item item3">
+                                            <div class="col-sm-6 col-lg-4 mb-2 architecture"
+                                                style="width:400px;height:300px;">
+                                                <div class="portfolio-wrapper">
+                                                    <div class="portfolio-image">
+                                                        <img src="assets/servicesgénéraux.jpg" style="height:300px;" />
+                                                    </div>
+                                                    <div class="portfolio-overlay">
+                                                        <div class="portfolio-content">
+                                                            <a class="popimg ml-0"
+                                                                [routerLink]="['/servicesExistants','SERVICES_GENERAUX']">
+                                                                <i
+                                                                    class="ti-zoom-in display-24 display-md-23 display-lg-22 display-xl-20"></i>
+                                                            </a>
+                                                            <h4 style="color:rgb(207, 207, 7)">Services généraux</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </div>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+        <div></div>
+        <div>
+            <br />
+            <div class="container px-4 px-lg-5" style="height: 100px;">
+
+                <div class="row gx-4 gx-lg-5 justify-content-center" style="margin-top:100px;">
+                    <div class="col-lg-8 itemset" [ngsRevealSet]="{ reset:true}" [ngsInterval]="70"
+                        [ngsSelector]="'.item'">
+                        <div class="item item1">
+                            <p class="text-black-50 mx-auto mt-2 mb-5" style="text-align:center;font-size:x-large;">
+                                Comment ça marche ?
+                            </p>
+                        </div>
+                        <div class="item item2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <app-details></app-details>
+    <div class="container px-4 px-lg-5" style="height: 100px;" *ngIf="!verif">
+
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 itemset" [ngsRevealSet]="{ reset:true}" [ngsInterval]="70" [ngsSelector]="'.item'"
+                style="margin-top:-70px;">
+                <div class="item item1">
+                    <p class="text-black-50 mx-auto mt-2 mb-5" style="text-align:center;font-size:x-large;">
+                        Avez vous un problème ?
+                    </p>
+                </div>
+                <div class="item item2">
+                    <p class="text-black-50 mx-auto mt-2 mb-5" style="text-align:center;font-size:x-large;">
+                        N'hésitez pas a nous contacter
+                    </p>
+                </div>
+                <div class="item item2"></div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" style="height:500px;margin-top:70px; " [ngsRevealSet]="{ reset:true}" [ngsInterval]="50"
+        [ngsSelector]="'.item'" *ngIf="!verif">
+        <div class="container">
+
+            <div class="row  item item1">
+                <div class="col-lg-12">
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+                        <div class="row" style="margin-top:140px;">
+                            <div class="col-md-6" style="width:50%">
+                                <div class="form-group">
+                                    <input class="form-control" id="name" type="text" placeholder="Votre Prénom *"
+                                        required data-validation-required-message="Please enter your name." [(ngModel)]="newMessage.firstName" name="firstName">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control" id="email" type="email"
+                                        placeholder="Votre Adresse Email *" required
+                                        data-validation-required-message="Please enter your email address." [(ngModel)]="newMessage.mail" name="mail">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="phone" type="tel" placeholder="Votre Numéro de téléphone *" required
+                                        data-validation-required-message="Please enter your phone number." [(ngModel)]="newMessage.phoneNumber" name="phoneNumber">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="width:50%">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" placeholder="Votre Message *" required
+                                        data-validation-required-message="Please enter a message." [(ngModel)]="newMessage.message" name="message"></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase"
+                                    type="submit">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer bg-black small text-center text-white-50" style="height:30px;">
+        <div class="container px-4 px-lg-5" style="margin-top: -30px; margin-bottom : 18px; margin-right: 173px;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16" style="margin-right:10px;">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+          </svg><b>RapidService81@gmail.com</b> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16" style="margin-left:300px;">
+            <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+            <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+          </svg><b>26907464</b>
+        </div>
+        
+    </footer>
+
+</body>

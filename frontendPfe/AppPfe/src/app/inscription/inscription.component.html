@@ -1,0 +1,127 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<app-navbar></app-navbar>
+<div class="container-fluid" style="margin-top:45px;">
+    <div class="row no-gutter">
+
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+        </div>
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+                <!-- Demo content-->
+                <div class="container" *ngIf="registerForm">
+                    <div class="row">
+                        <div>
+                            <div class="alert-danger">
+                                <div *ngIf="erreur==1">
+                                    <div>Mail exists</div>
+
+                                </div>
+                            </div>
+                            <h3 class="display-4">S’inscrire</h3>
+                            <p class="text-muted mb-4">C’est rapide et facile. </p>
+
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                                <div class="form-group mb-3">
+
+                                    <input id="inputnom" type="text" formControlName="lastName"
+                                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Nom"
+                                        required="" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                        <!-- <div *ngIf="f.nom.invalid && (f.nom.dirty || f.nom.touched)" class="alert alert-danger"> -->
+                                        <div *ngIf="f.lastName.errors.required">Vous devez saisir votre nom</div>
+                                        <div *ngIf="f.lastName.errors?.['minlength']"> Le nom doit être
+                                            au moins 3 caractères. </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="text" formControlName="firstName"
+                                        [ngClass]="{'is-invalid':submitted && f.firstName.errors }" placeholder="Prénom"
+                                        autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" />
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                        <div *ngIf="submitted && f.firstName.errors.required">Vous devez saisir votre
+                                            prénom
+                                        </div>
+                                        <div *ngIf="submitted && f.firstName.errors?.['minlength']">Le prénom doit être
+                                            au moins 3 caractères.</div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input id="inputEmail" type="email" formControlName="mail"
+                                        [ngClass]="{ 'is-invalid': submitted && f.mail.errors }"
+                                        placeholder="Adresse Email" autofocus=""
+                                        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+                                    <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
+                                        <div *ngIf="f.mail.errors.required">Vous devez saisir votre adresse Email</div>
+                                        <div *ngIf="f.mail.errors.email">
+                                            L'e-mail doit être une adresse valide</div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input id="inputPassword" type="password" formControlName="password"
+                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                        placeholder="mot de passe"
+                                        class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Vous devez saisir un mot de passe</div>
+                                        <div *ngIf="f.password.errors?.['minlength']">Le mot de passe doit être
+                                            au moins 3 caractères.</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="password" formControlName="confirmPassword" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+                                        placeholder="Confirmer mot de passe"
+                                        class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
+                                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                        <div *ngIf="f.confirmPassword.errors.required">Vous devez remplir ce champ
+                                        </div>
+                                        <div *ngIf="f.confirmPassword.errors.mustMatch">Les mots de passe doivent
+                                            correspondre</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="number" formControlName="phoneNumber" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+                                        placeholder="Numéro de téléphone"
+                                        class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
+                                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                                        <div *ngIf="f.phoneNumber.errors.required">Vous devez saisir votre numéro de
+                                            téléphone</div>
+                                    </div>
+                                </div>
+
+
+                                <!-- <input type="file" (change)="selectFile($event)" 
+                                        placeholder="photo de profil"
+                                         /> -->
+
+                                <input type="file" id="file" (change)="selectFile($event)" />
+                                <label for="file">Ajouter une photo de profil</label>
+
+
+
+
+                                <button type="submit"
+                                    class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">S'inscrire</button>
+                                
+                                <!--  <div class="alert alert-warning" *ngIf="submitted && isSignUpFailed">
+                                    Signup failed!<br />{{ errorMessage }}
+                                </div>  -->
+                            </form>
+                           
+                        </div>
+                    </div>
+                </div><!-- End -->
+            </div>
+        </div><!-- End -->
+    </div>
+</div>

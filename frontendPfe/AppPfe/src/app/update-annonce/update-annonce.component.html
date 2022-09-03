@@ -1,0 +1,99 @@
+<body id="page-top">
+    <app-navbar></app-navbar>    
+    <div class="container contact-form" style="margin-top:170px;  ">
+       
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+    
+            <!-- <h3>Proposer vos services</h3> -->
+           <div class="row" style="margin-top:-10px;">
+                <div class="col-md-6">
+                    <div style="margin-left: 5px;">
+                   <mat-form-field style="margin-left:-263px;">
+                        <mat-label>Catégorie</mat-label>
+                        <mat-select [(ngModel)]="currentAnnonce.category" #category="ngModel" name="category">
+                          <mat-option value="BRICOLAGE" >
+                            Bricolage                      
+                          </mat-option>
+                      
+                          <mat-option value="JARDINAGE" >
+                            Jardinage
+                          </mat-option>
+    
+                            <mat-option value="DEMENAGEMENT" >
+                                Déménagement
+                            </mat-option>
+    
+                            <mat-option value="MENAGE" >
+                                Ménage
+                            </mat-option>
+    
+                            <mat-option value="AIDE_A_DOMICILE" >
+                                Aide à domicile
+                            </mat-option>
+    
+                            <mat-option value="SERVICES_GENERAUX" >
+                                Services généraux
+                            </mat-option>
+                        </mat-select>
+                      </mat-form-field> 
+                    </div>
+    
+                    <div style="margin-left: -110px;" *ngIf = "currentAnnonce.category === cat">
+                    <mat-form-field style="margin-left:-143px;" >
+                          <mat-label>Sous-catégorie</mat-label>
+                          <mat-select [(ngModel)]="currentAnnonce.subCategory" #subCategory="ngModel" name="subCategory">
+                            <mat-option value="ELECTRICITE">
+                                électricité
+                            </mat-option>
+                        
+                            <mat-option value="PLOMBERIE">
+                                Plomberie
+                              </mat-option>
+    
+                              <mat-option value="AUTRES">
+                                Autres
+                              </mat-option>
+                          </mat-select>
+                        </mat-form-field>  
+                    </div>
+                       
+                    <div >   </div>
+                    <div class="form-group">
+                        <input type="text"   name="location" class="form-control" placeholder="Adresse"  [(ngModel)]="currentAnnonce.location" #location="ngModel" required/>
+                       
+    
+    
+                    </div>
+                  
+    
+                                    <!-- <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <span class="btn btn-primary btn-file"><span class="fileupload-new" >importer un fichier</span>
+                                        <span class="fileupload-exists">Change</span>         <input type="file" (change)="selectFile($event)"/></span>
+                                        <span class="fileupload-preview"></span>
+                                        <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                                      </div>   -->     
+                   <!--  <div class="form-group" style="margin-top: 35px; margin-left:350px; width:350px;">
+                        <input type="submit" name="btnSubmit" class="btnContact" value="Suivant" />
+                        
+                    </div> -->
+                    <!-- <input type="submit" name="btnSubmit" class="btnContact" value="Suivant" [disabled]="this.test == false"/> -->
+                          <!-- <input type="submit" name="btnSubmit"  value="Suivant" /> -->
+                          <button type="submit" class="btn btn-success mb-2" style="margin-top:20px; margin-left:-280px;">Valider</button>
+                          <button type="button" class="btn btn-danger mb-2" style="margin-left:20px ; margin-top:20px;" (click)="onReset()">Annuler</button>
+                          <!-- <button type="submit" mat-raised-button color="basic" style="margin-top:20px; margin-left:-374px;">Valider</button> -->
+                          <!-- <button mat-stroked-button color="primary" type="reset" (click)="onReset()">Annuler</button> -->
+                       
+                        </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea maxlength="700" name="description" class="form-control" placeholder="Description" [(ngModel)]="currentAnnonce.description" style="width: 100%; height: 150px;" required></textarea>
+                    </div>
+                </div>
+            </div>
+    
+       
+        </form>
+    
+    </div>
+    </body>
+    

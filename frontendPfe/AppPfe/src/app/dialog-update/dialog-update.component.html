@@ -1,0 +1,90 @@
+<main>
+    <div class="container-fluid" style="width: auto;">
+      <div class="row justify-content-center pt-2">
+        <div class="text-center col">
+          <h1 class="h3">Modifier votre profil</h1>
+          <hr>
+        </div>
+      </div>
+      <button type="button" class="btn-close" aria-label="Close"(click)="fermer()"></button>
+      <div class="row justify-content-center p-2"style="padding-left: 0px;">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+            
+          <div class="card" style="width:420px;">
+            <div class="card-header text-center">
+              <!-- <h4>Movie : <span class="text-primary font-weight-bold">Avengers: Endgame</span></h4> -->
+            </div>
+            <div class="card-body">
+              <div class="container-fluid">
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nom</label>
+                    <input type="text" class="form-control"  style="width: 340px; " [(ngModel)]="curUser.lastName" #nom="ngModel" name="nom" required>
+                  </div>
+                 
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Prénom</label>
+                    <input type="text" class="form-control" style="width: 340px;" [(ngModel)]="curUser.firstName" #prenom="ngModel"name="prenom" required>
+                  </div> 
+                
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Adresse mail</label>
+                    <input type="text" class="form-control" style="width: 340px;" [(ngModel)]="curUser.mail" #mail="ngModel"name="mail" required>
+                  </div>
+                
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Numéro de téléphone</label>
+                    <input type="text" class="form-control" style="width: 340px;"  [(ngModel)]="curUser.phoneNumber" #nom="ngModel" name="num" required>
+                  </div>
+                
+                </div>
+               
+               <div></div>
+                <div class="form-row justify-content-center" style="margin-top: 20px;">
+                    <!-- <a mat-button href="https://www.google.com/" target="_blank">Modifier Mot de passe</a> -->
+                
+                <!--     <mat-accordion > 
+                        <mat-expansion-panel  hideToggle > 
+                          <mat-expansion-panel-header > 
+                           
+                            <mat-panel-description >
+                             Modifier le mot de passe
+                            </mat-panel-description > 
+                          </mat-expansion-panel-header > 
+                        <div class="col-md-4">
+                            <div class="wrapper"   *ngIf="erreur==1">
+                            <div class="typing-demo">Mot de passe incorrect</div>
+                        
+                            </div>
+                            </div>                        
+                          <input type="text" class="form-control" style="margin-top: 20px;" placeholder="Ancien mot de passe" [(ngModel)]="ancienMpd" name="ancienMpd" />
+
+                          <input type="text" class="form-control" style="margin-top: 20px;" placeholder="Nouveau mot de passe" [(ngModel)]="nouveauMdp" name="nouveauMdp"/>
+
+                          <input type="text" class="form-control" style="margin-top: 20px;" placeholder="Confirmer mot de passe" [(ngModel)]="confirmMdp" name="confirmMdp"/>
+
+                        </mat-expansion-panel> 
+                     
+                        </mat-accordion >  -->
+  <div class="example-button-row" style="margin-top:20px;">
+    <button mat-stroked-button color="primary">Enregistrer</button>
+                    </div>
+
+                 <!--  <button type="submit" class="btn btn-primary mr-4">Create</button>
+                  <button type="submit" class="btn btn-primary">Delete</button> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>

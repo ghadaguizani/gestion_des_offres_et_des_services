@@ -1,0 +1,161 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Serelin Portfolio</title>
+
+ 
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+          <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Serelin Zhang</a> -->
+          <a class="navbar-brand js-scroll-trigger" routerLink="/"> <img src="assets/logo1.png" style="width: 80px;height:60px;"> </a>          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          
+              <i class="fa fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive" style="margin-left:700px;">
+              <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item" *ngIf="! isLoggedIn">
+                      <a class="nav-link js-scroll-trigger" routerLink="/login">Se connecter</a>
+                  </li>
+                  <li class="nav-item" *ngIf="! isLoggedIn">
+                      <a class="nav-link js-scroll-trigger" routerLink="/inscription">S'inscrire</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link js-scroll-trigger" routerLink="/ajoutService">Proposer mes services</a>
+                  </li>
+                  <ul class="navbar-nav text-uppercase ml-auto" *ngIf="isLoggedIn" >
+                <a [routerLink]="['/profil',id]">  <img src="{{profilPicture}}" class="avatar" *ngIf="profilPicture != ''"> </a>
+        <li class="nav-item" >
+          <a [routerLink]="['/profil',id]" class="nav-link">{{ firstName }} </a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">Se déconnecter</a>
+        </li>
+                  </ul>
+                 
+              </ul>
+          </div>
+      </div>
+  </nav>
+ 
+
+<div class="container contact-form" style="margin-top:170px;  ">
+    <div class="contact-image" style="margin-top: -10px;">
+        <img src="/assets/s.jpg" alt="rocket_contact"/>
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+
+        <!-- <h3>Proposer vos services</h3> -->
+        <h3 style="font-style: oblique ; color: #0d5aae;" >Rendez des services et augmentez vos revenus</h3>
+       <div class="row" style="margin-top:-10px;">
+            <div class="col-md-6">
+                <div style="margin-left: 5px;">
+               <mat-form-field style="margin-left:-263px;">
+                    <mat-label>Catégorie</mat-label>
+                    <mat-select [(ngModel)]="newService.category" #category="ngModel" name="category">
+                      <mat-option value="BRICOLAGE" (click)="onClick()">
+                        Bricolage                      
+                      </mat-option>
+                  
+                      <mat-option value="JARDINAGE" (click)="onClick2()">
+                        Jardinage
+                      </mat-option>
+
+                        <mat-option value="DEMENAGEMENT" (click)="onClick2()">
+                            Déménagement
+                        </mat-option>
+
+                        <mat-option value="MENAGE" (click)="onClick2()">
+                            Ménage
+                        </mat-option>
+
+                        <mat-option value="AIDE_A_DOMICILE" (click)="onClick2()">
+                            Aide à domicile
+                        </mat-option>
+
+                        <mat-option value="SERVICES_GENERAUX" (click)="onClick2()">
+                            Services généraux
+                        </mat-option>
+                    </mat-select>
+                  </mat-form-field> 
+                </div>
+
+                <div style="margin-left: -110px;" *ngIf="verif1">
+                <mat-form-field style="margin-left:-143px;">
+                      <mat-label>Sous-catégorie</mat-label>
+                      <mat-select [(ngModel)]="newService.subCategory" #subCategory="ngModel" name="subCategory">
+                        <mat-option value="ELECTRICITE" (click)="onClick3()">
+                            électricité
+                        </mat-option>
+                    
+                        <mat-option value="PLOMBERIE" (click)="onClick3()">
+                            Plomberie
+                          </mat-option>
+
+                          <mat-option value="AUTRES" (click)="onClick3()">
+                            Autres
+                          </mat-option>
+                      </mat-select>
+                    </mat-form-field>  
+                </div>    
+                <div *ngIf="! verif1">   </div>
+                <div class="form-group">
+                    <input type="text"   name="location" class="form-control" placeholder="Adresse"  [(ngModel)]="newService.location" #location="ngModel" required/>
+                   
+
+
+                </div>
+              
+
+                                <!-- <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <span class="btn btn-primary btn-file"><span class="fileupload-new" >importer un fichier</span>
+                                    <span class="fileupload-exists">Change</span>         <input type="file" (change)="selectFile($event)"/></span>
+                                    <span class="fileupload-preview"></span>
+                                    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                                  </div>   -->     
+               <!--  <div class="form-group" style="margin-top: 35px; margin-left:350px; width:350px;">
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Suivant" />
+                    
+                </div> -->
+                <!-- <input type="submit" name="btnSubmit" class="btnContact" value="Suivant" [disabled]="this.test == false"/> -->
+               
+                <button mat-raised-button color="primary" style="margin-left: -380px; margin-top:10px;" type="submit" [disabled]="(this.verif2 == false) || (this.verif1 == true && this.verif3 == false)">Suivant</button>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea maxlength="700" name="description" class="form-control" placeholder="Description" [(ngModel)]="newService.description" style="width: 100%; height: 150px;" required></textarea>
+                </div>
+            </div>
+        </div>
+
+   
+    </form>
+
+</div>
+
+
+
+</body>
+
+
+
+

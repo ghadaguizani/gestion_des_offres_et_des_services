@@ -1,0 +1,156 @@
+
+<app-navbar></app-navbar>
+
+
+<div class="container" style="height:470px;" >
+    <div class="dashboard" style="margin-top: 50px;margin-left: 50px;">
+        <div class="dashboard-card main" style="height:500px;margin-top: 110px;">
+
+            <div class="dashboard-card-content" style="margin-top:100px;">
+              
+                <img src="http://localhost:8093/api/file/download/{{currentService.user.photoDeProfil}}"
+                      class="avatar" *ngIf="currentService?.user.photoDeProfil != null ">
+                <img src="assets/img1.png" class="avatar"  *ngIf="currentService?.user.photoDeProfil == null "  >
+
+                <h2 style="color: black;font-size: 20px;font-style: italic;margin-top: 15px;" >
+                    {{currentService?.user.lastName}} {{currentService?.user.firstName}} </h2>
+               
+
+                <div style="margin-top:20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path
+                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+
+                    {{currentService?.location}}
+
+                </div>
+                <div style="margin-top:20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone" viewBox="0 0 16 16">
+                        <path
+                            d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+
+                    {{currentService?.user.phoneNumber}}
+                </div>
+
+            </div>
+        </div>
+
+        
+ <div class="card" style="width:840px;margin-top: 218px; height:180px; margin-left :20px;">
+    <div>
+        <table>
+            <tr>
+              
+                <td>
+                    <div class="description" style="margin-left:150px;">
+
+                        
+                        <div style="margin-left:-104px;margin-top:20px; width: 700px;">{{currentService?.description}}
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+
+        <div style="margin-left:100px; height:60px; margin-bottom:15px; ">
+            <div style="margin-left:-52px;">
+                <hr>
+            </div>
+<div style="margin-top: 18px; margin-left:-90px;">
+    
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-left:42px;"
+                fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                <path
+                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg>
+            {{currentService?.location}}
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tag"
+                style="margin-left: 30px;" viewBox="0 0 16 16">
+                <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z" />
+                <path
+                    d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z" />
+            </svg>
+
+            {{currentService?.category}}
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-left: 30px;"
+                fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path
+                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+            </svg>
+
+            {{currentService?.creationDate}}
+       
+    </div>
+    </div>
+
+    </div>
+</div>
+
+<!-- <div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row" style="margin-left: -1432px;
+    width: 1500px;
+    margin-top: 578px;">
+      <div class="d-flex flex-column col-md-8">
+        <div class="coment-bottom bg-white p-2 px-4">
+            <h3 style="color: black">Avis et commentaires</h3>
+
+          <div class="d-flex flex-row add-comment-section mt-4 mb-4"><img
+              class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="48" height="40"><input
+              type="text" class="form-control mr-3" placeholder="Add comment" style="margin-left:20px; height:42px; width:350px;"> <button mat-raised-button color="primary" style="background-color: #0f0fba; margin-top: 0px;margin-left: 18px; height: 42px;">Commenter</button></div>
+          <div class="commented-section mt-2" *ngFor="let commentaire of Commentaires">
+            <div class="d-flex flex-row align-items-center commented-user">
+              <h5 class="mr-2">{{commentaire?.user.lastName}} {{commentaire?.user.firstName}}</h5><span class="dot mb-1"></span>
+            </div>
+            <div class="comment-text-sm"><span>{{commentaire?.message}}</span></div>
+  
+          </div>
+  
+  
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div style="margin-left: -1150px;margin-top: 631px;">
+    <h2 style="color:black;">Avis et commentaires</h2>
+</div>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate>
+<div style="margin-top: 671px; margin-left : 140px;" *ngIf="isLoggedIn && verif==false ">
+    <div class="d-flex flex-row add-comment-section mt-4 mb-4" style="margin-left: -1297px;">
+      <img class="img-fluid img-responsive rounded-circle mr-2" src="{{profilPicture}}" width="48" height="40" *ngIf="profilPicture!='' " >
+      <img class="img-fluid img-responsive rounded-circle mr-2" src="assets/img1.png" width="48" height="40" *ngIf="profilPicture=='' " >
+      <input #msg type="text" class="form-control mr-3" placeholder="Votre commentaire" style="margin-left:20px; height:42px; width:350px;" [(ngModel)]="newFeedback.message" name="message"> <button mat-raised-button color="primary" style="background-color: #0f0fba; margin-top: 0px;margin-left: 18px; height: 42px;" type="submit">Commenter</button>
+  </div></div>
+</form> 
+<div style="margin-left: -296px;margin-top: 450px;" *ngIf="nb>0">
+  <div  style="width:1000px;" *ngFor="let commentaire of Commentaires">
+    <div class="row  d-flex justify-content-center">
+      <div class="card p-3" style="margin-top: 30px; margin-left: -15px;">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="user d-flex flex-row align-items-center">
+            <img src="http://localhost:8093/api/file/download/{{commentaire?.user.photoDeProfil}} " width="30" class="user-img rounded-circle mr-2"
+            style="margin-right: 20px; width: 55px;"> 
+            <span><small class="font-weight-bold text-primary" style="font-size: 19px;">{{commentaire?.user.lastName}} {{commentaire?.user.firstName}}</small> </span>
+      </div>
+      <small>{{commentaire?.creationDate}}</small>
+      
+      </div>
+      <div style="height: 63px; margin-left: 71px; margin-bottom: -22px;">
+        <span><small class="font-weight-bold">{{commentaire?.message}}</small></span>
+      </div>
+      <div class="action d-flex justify-content-between mt-2 align-items-center">
+      </div>
+    </div>
+  </div>
+</div>

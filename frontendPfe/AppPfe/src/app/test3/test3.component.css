@@ -1,0 +1,166 @@
+.blog-text {
+  text-align: center;
+  padding: 30px 0;
+  width: 500px;
+  margin: auto;
+}
+
+.blog-text {
+  text-align: center;
+  padding: 30px 0;
+  width: 500px;
+  margin: auto;
+}
+
+.blog-text h6 {
+  font-size: 19px;
+  color: #3763eb;
+}
+
+.blog-text h2 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.blog-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 2px;
+  width: 50px;
+  background: #3763eb;
+}
+
+.blog-text p {
+  color: #606060;
+}
+
+/* cared section */
+
+.card {
+  border: none;
+}
+
+.card img{
+  position: relative;
+}
+
+
+
+h5.card-title {
+  font-size: 25px;
+  margin: 15px 2px;
+}
+
+p.card-text {
+  color: #606060;
+  padding-left: 2px;
+}
+
+.author {
+  width: 177px;
+  background: #3763eb;
+  padding: 6px;
+  border-radius: 25px;
+}
+
+.author {
+  position: absolute;
+  right: 12px;
+  top: 35%;
+}
+
+.author img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.author span {
+  color: #fff;
+  font-size: 14px;
+}
+
+/* footer-sction */
+
+.footer-section{
+  background: #081828;
+  padding: 50px 0;
+}
+
+.blog-items{
+  padding-top: 80px;
+}
+
+.blog-items img{
+  width: 60%;
+}
+
+.blog-items p {
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 0;
+}
+
+.blog-items .social{}
+
+.blog-items .social ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  padding-top: 20px;
+}
+
+.blog-items .social ul li{}
+
+.blog-items .social ul li a {
+  text-decoration: none;
+  padding: 0px 10px;
+  color: #fff;
+}
+
+.footer-items {
+  padding-top: 80px;
+}
+
+.footer-items h4 {
+  color: #fff;
+  font-weight: 600;
+  border-left: 2px solid #3763eb;
+  padding-left: 16px;
+  margin-bottom: 15px;
+}
+
+.footer-items ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer-items ul li{}
+
+.footer-items ul li a {
+  display: block;
+  text-decoration: none;
+  color: #9599a7;
+  padding: 6px 0;
+  transition: .5s;
+}
+
+.footer-items ul li a:hover{
+  letter-spacing: 1px;
+  color: #f00;
+}
+
+.bottom{
+  border-top: 1px solid #ddd;
+  padding-top: 30px;
+}
+.bottom p{
+  color: #9599a7;
+  text-align: center;
+  padding: 0;
+}
